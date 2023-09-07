@@ -6,24 +6,30 @@ import { Feather } from 'react-native-vector-icons'
 import MaterialCommunityIcons from 'react-native-vector-icons/Feather';
 import { TemaContext } from "../../contexts/TemaContext";
 import { useContext } from 'react';
+import { AutenticacaoContext } from '../../contexts/AutenticacaoContext';
+import { ProdutoContext } from '../../contexts/ProdutosContext';
 
-export default function Principal({navigation}) {
-  const ultimosVistos = []
+export default function Principal({ navigation }) {
   const { temaEscolhido } = useContext(TemaContext);
   const estilo = estilos(temaEscolhido);
-  
+  const { usuario } = useContext(AutenticacaoContext);
+  const { carrinho, ultimosVistos } = useContext(ProdutoContext);
+
   return (
     <View style={estilo.container}>
       <StatusBar />
       <View style={estilo.tituloArea}>
-        <Text style={estilo.titulo}>Olá, Thiago</Text>
+        <Text style={estilo.titulo}>Olá, {usuario.nome}</Text>
         <View style={estilo.carrinhoArea}>
-          <TouchableOpacity onPress={() => {}}>
+          <TouchableOpacity onPress={() => { }}>
             <Feather name="shopping-cart" size={30} color="#fff" style={estilo.carrinhoIcon} />
           </TouchableOpacity>
-          <View style={estilo.carrinhoQuantidadeArea}>
-            <Text style={estilo.carrinhoQuantidade}>0</Text>  
-          </View>
+          {
+            carrinho.length > 0 &&
+            <View style={estilo.carrinhoQuantidadeArea}>
+              <Text style={estilo.carrinhoQuantidade}>{carrinho.length}</Text>
+            </View>
+          }
           <TouchableOpacity onPress={() => navigation.navigate('Configurações')} style={estilo.iconArea} >
             <MaterialCommunityIcons name="settings" size={30} color="#fff" style={estilo.icon} />
           </TouchableOpacity>
