@@ -21,7 +21,7 @@ export default function Principal({ navigation }) {
       <View style={estilo.tituloArea}>
         <Text style={estilo.titulo}>Olá, {usuario.nome}</Text>
         <View style={estilo.carrinhoArea}>
-          <TouchableOpacity onPress={() => { }}>
+          <TouchableOpacity onPress={() => { navigation.navigate('CarrinhoCompras') }}>
             <Feather name="shopping-cart" size={30} color="#fff" style={estilo.carrinhoIcon} />
           </TouchableOpacity>
           {

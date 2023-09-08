@@ -4,6 +4,7 @@ import { estilos } from './estilos';
 import { useContext } from "react";
 import { TemaContext } from "../../contexts/TemaContext";
 import { AutenticacaoContext } from "../../contexts/AutenticacaoContext";
+import { ProdutoContext } from "../../contexts/ProdutosContext";
 
 export default function Login({ navigation }) {
   const [email, setEmail] = useState("");
@@ -11,10 +12,12 @@ export default function Login({ navigation }) {
   const { temaEscolhido } = useContext(TemaContext);
   const estilo = estilos(temaEscolhido);
   const { login } = useContext(AutenticacaoContext);
+  const { limparCarrrinho } = useContext(ProdutoContext);
 
   function logandoNoSistema() {
     const logado = login(email, senha);
     if (logado) {
+      limparCarrrinho();
       navigation.navigate('Principal');
     } else {
       Alert.alert('Email ou senha incorretos');

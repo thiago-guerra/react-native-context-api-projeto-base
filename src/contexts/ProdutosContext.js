@@ -12,13 +12,18 @@ export function ProdutoProvider({ children }) {
         novoUltimosVistos.add(item);
         setUltimosVistos([...novoUltimosVistos]);
     }
+
+    function limparCarrrinho() {
+        setProdutos([]);
+    }
     
     return (
         <ProdutoContext.Provider value={
             {
                 carrinho,
                 adicionarProduto,
-                ultimosVistos
+                ultimosVistos,
+                limparCarrrinho
             }
         }>
             {children}
