@@ -42,9 +42,12 @@ export default function CarrinhoCompras({ navigation }) {
             style={estilo.lista}
             showsVerticalScrollIndicator={false}
           />
-          <TouchableOpacity onPress={() => { navigation.navigate('Finalizar')}}>
+          {
+            carrinho.length > 0 &&
+            <TouchableOpacity onPress={() => { navigation.navigate('Finalizar')}}>
             <Text style={estilo.botao}>Finalizar Compra</Text>
           </TouchableOpacity>
+          }
         </View>
       );
 }

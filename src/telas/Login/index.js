@@ -12,12 +12,10 @@ export default function Login({ navigation }) {
   const { temaEscolhido } = useContext(TemaContext);
   const estilo = estilos(temaEscolhido);
   const { login } = useContext(AutenticacaoContext);
-  const { limparCarrrinho } = useContext(ProdutoContext);
 
   function logandoNoSistema() {
     const logado = login(email, senha);
     if (logado) {
-      limparCarrrinho();
       navigation.navigate('Principal');
     } else {
       Alert.alert('Email ou senha incorretos');

@@ -14,7 +14,6 @@ export default function Principal({ navigation }) {
   const estilo = estilos(temaEscolhido);
   const { usuario } = useContext(AutenticacaoContext);
   const { carrinho, ultimosVistos } = useContext(ProdutoContext);
-
   return (
     <View style={estilo.container}>
       <StatusBar />

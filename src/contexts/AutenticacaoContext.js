@@ -10,8 +10,8 @@ export function AutenticacaoProvider({ children }) {
             setUsuario({
                 nome: 'Thiago Guerra',
                 email: email,
-                endereco: 'Rua supia',
-                telefone: '998077753'
+                endereco: 'Rua supia, 40',
+                telefone: '+55 (81) 99807-7753'
             });
             return true;
         }else {

@@ -22,5 +22,32 @@ export const estilos = (tema) => {
             width: 0.9 * width,
             textAlign: 'center',
           },
+          infoEntrega:{
+            backgroundColor: '#1b7894',
+            borderRadius: 8,
+            width: 0.9 * width,
+            marginTop: 16
+        },
+          textoInfoEntrega:{
+            color: '#fff',
+            fontSize: 27,
+            fontWeight: 'bold',
+            paddingVertical: 16,
+            paddingHorizontal: 20,
+          },
+          textoInfoUsuario:{
+            color: '#fff',
+            fontSize: 16,
+          },
+          infoUsuario: {
+            paddingHorizontal: 20,
+            marginBottom: 16,
+          },
+          infoCompra: {
+            flex: 1,
+            width: 0.9 * width,
+            paddingHorizontal: 20,
+            paddingVertical: 16,
+          }
     });
 };
